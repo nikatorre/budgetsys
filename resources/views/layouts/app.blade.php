@@ -1,500 +1,926 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!doctype html>
+<html class="no-js" lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Login Register | Notika - Notika Admin Template</title>
-  <meta name="description" content="">
+  <title>srtdash - ICO Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- favicon
-  ============================================ -->
-  <link rel="shortcut icon" type="image/x-icon" href="{{asset('img/favicon.ico')}}">
-  <!-- Google Fonts
-  ============================================ -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
-  <!-- Bootstrap CSS
-  ============================================ -->
-  <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
-  <!-- font awesome CSS
-  ============================================ -->
-  <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
-  <!-- owl.carousel CSS
-  ============================================ -->
-  <link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}">
-  <link rel="stylesheet" href="{{asset('css/owl.theme.css')}}">
-  <link rel="stylesheet" href="{{asset('css/owl.transitions.css')}}">
-  <!-- animate CSS
-  ============================================ -->
-  <link rel="stylesheet" href="{{asset('css/animate.css')}}">
-  <!-- normalize CSS
-  ============================================ -->
-  <link rel="stylesheet" href="{{asset('css/normalize.css')}}">
-  <!-- mCustomScrollbar CSS
-  ============================================ -->
-  <link rel="stylesheet" href="{{asset('css/scrollbar/jquery.mCustomScrollbar.min.css')}}">
-  <!-- wave CSS
-  ============================================ -->
-  <link rel="stylesheet" href="{{asset('css/wave/waves.min.css')}}">
-  <!-- Notika icon CSS
-  ============================================ -->
-  <link rel="stylesheet" href="{{asset('css/notika-custom-icon.css')}}">
-  <!-- main CSS
-  ============================================ -->
-  <link rel="stylesheet" href="{{asset('css/main.css')}}">
-  <!-- style CSS
-  ============================================ -->
-  <link rel="stylesheet" href="{{asset('style.css')}}">
-  <!-- responsive CSS
-  ============================================ -->
-  <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
-  <!-- modernizr JS
-  ============================================ -->
-  <script src="{{asset('js/vendor/modernizr-2.8.3.min.js')}}"></script>
+  <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
+  <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/font-awesome.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/themify-icons.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/metisMenu.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/slicknav.min.css')}}">
+  <!-- amchart css -->
+  <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+  <!-- others css -->
+  <link rel="stylesheet" href="{{asset('assets/css/typography.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/default-css.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/styles.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/responsive.css')}}">
+  <!-- modernizr css -->
+  <script src="{{asset('assets/js/vendor/modernizr-2.8.3.min.js')}}"></script>
 </head>
+
 <body>
-    <div id="app">
-        <!-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <!--<ul class="navbar-nav mr-auto">
-
-                    </ul> -->
-
-                    <!-- Right Side Of Navbar -->
-                    <!-- <ul class="navbar-nav ml-auto"> -->
-                        <!-- Authentication Links -->
-                        <!-- @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else -->
-                        <!-- Start Header Top Area -->
-                        <div class="header-top-area">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                        <div class="logo-area">
-                                            <a href="#"><img src="img/logo/logo.png" alt="" /></a>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                                        <div class="header-top-menu">
-                                            <ul class="nav navbar-nav notika-top-nav">
-                                                <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span><i class="notika-icon notika-support"></i></span></a>
-                                                    <div role="menu" class="dropdown-menu message-dd chat-dd animated zoomIn">
-                                                        <div class="hd-mg-tt">
-                                                            <h2>Chat</h2>
-                                                        </div>
-                                                        <div class="search-people">
-                                                            <i class="notika-icon notika-left-arrow"></i>
-                                                            <input type="text" placeholder="Search People" />
-                                                        </div>
-                                                        <div class="hd-message-info">
-                                                            <a href="#">
-                                                                <div class="hd-message-sn">
-                                                                    <div class="hd-message-img chat-img">
-                                                                        <img src="img/post/1.jpg" alt="" />
-                                                                        <div class="chat-avaible"><i class="notika-icon notika-dot"></i></div>
-                                                                    </div>
-                                                                    <div class="hd-mg-ctn">
-                                                                        <h3>David Belle</h3>
-                                                                        <p>Available</p>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#">
-                                                                <div class="hd-message-sn">
-                                                                    <div class="hd-message-img chat-img">
-                                                                        <img src="img/post/2.jpg" alt="" />
-                                                                    </div>
-                                                                    <div class="hd-mg-ctn">
-                                                                        <h3>Jonathan Morris</h3>
-                                                                        <p>Last seen 3 hours ago</p>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#">
-                                                                <div class="hd-message-sn">
-                                                                    <div class="hd-message-img chat-img">
-                                                                        <img src="img/post/4.jpg" alt="" />
-                                                                    </div>
-                                                                    <div class="hd-mg-ctn">
-                                                                        <h3>Fredric Mitchell</h3>
-                                                                        <p>Last seen 2 minutes ago</p>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#">
-                                                                <div class="hd-message-sn">
-                                                                    <div class="hd-message-img chat-img">
-                                                                        <img src="img/post/1.jpg" alt="" />
-                                                                        <div class="chat-avaible"><i class="notika-icon notika-dot"></i></div>
-                                                                    </div>
-                                                                    <div class="hd-mg-ctn">
-                                                                        <h3>David Belle</h3>
-                                                                        <p>Available</p>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                            <a href="#">
-                                                                <div class="hd-message-sn">
-                                                                    <div class="hd-message-img chat-img">
-                                                                        <img src="img/post/2.jpg" alt="" />
-                                                                        <div class="chat-avaible"><i class="notika-icon notika-dot"></i></div>
-                                                                    </div>
-                                                                    <div class="hd-mg-ctn">
-                                                                        <h3>Glenn Jecobs</h3>
-                                                                        <p>Available</p>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="hd-mg-va">
-                                                            <a href="#">View All</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Header Top Area -->
-                        <!-- Mobile Menu start -->
-                        <!-- <div class="mobile-menu-area">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div class="mobile-menu">
-                                            <nav id="dropdown">
-                                                <ul class="mobile-menu-nav">
-                                                    <li><a data-toggle="collapse" data-target="#Charts" href="#">Home</a>
-                                                        <ul class="collapse dropdown-header-top">
-                                                            <li><a href="index.html">Dashboard One</a></li>
-                                                            <li><a href="index-2.html">Dashboard Two</a></li>
-                                                            <li><a href="index-3.html">Dashboard Three</a></li>
-                                                            <li><a href="index-4.html">Dashboard Four</a></li>
-                                                            <li><a href="analytics.html">Analytics</a></li>
-                                                            <li><a href="widgets.html">Widgets</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li><a data-toggle="collapse" data-target="#demoevent" href="#">Email</a>
-                                                        <ul id="demoevent" class="collapse dropdown-header-top">
-                                                            <li><a href="inbox.html">Inbox</a></li>
-                                                            <li><a href="view-email.html">View Email</a></li>
-                                                            <li><a href="compose-email.html">Compose Email</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li><a data-toggle="collapse" data-target="#democrou" href="#">Interface</a>
-                                                        <ul id="democrou" class="collapse dropdown-header-top">
-                                                            <li><a href="animations.html">Animations</a></li>
-                                                            <li><a href="google-map.html">Google Map</a></li>
-                                                            <li><a href="data-map.html">Data Maps</a></li>
-                                                            <li><a href="code-editor.html">Code Editor</a></li>
-                                                            <li><a href="image-cropper.html">Images Cropper</a></li>
-                                                            <li><a href="wizard.html">Wizard</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li><a data-toggle="collapse" data-target="#demolibra" href="#">Charts</a>
-                                                        <ul id="demolibra" class="collapse dropdown-header-top">
-                                                            <li><a href="flot-charts.html">Flot Charts</a></li>
-                                                            <li><a href="bar-charts.html">Bar Charts</a></li>
-                                                            <li><a href="line-charts.html">Line Charts</a></li>
-                                                            <li><a href="area-charts.html">Area Charts</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li><a data-toggle="collapse" data-target="#demodepart" href="#">Tables</a>
-                                                        <ul id="demodepart" class="collapse dropdown-header-top">
-                                                            <li><a href="normal-table.html">Normal Table</a></li>
-                                                            <li><a href="data-table.html">Data Table</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li><a data-toggle="collapse" data-target="#demo" href="#">Forms</a>
-                                                        <ul id="demo" class="collapse dropdown-header-top">
-                                                            <li><a href="form-elements.html">Form Elements</a></li>
-                                                            <li><a href="form-components.html">Form Components</a></li>
-                                                            <li><a href="form-examples.html">Form Examples</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li><a data-toggle="collapse" data-target="#Miscellaneousmob" href="#">App views</a>
-                                                        <ul id="Miscellaneousmob" class="collapse dropdown-header-top">
-                                                            <li><a href="notification.html">Notifications</a>
-                                                            </li>
-                                                            <li><a href="alert.html">Alerts</a>
-                                                            </li>
-                                                            <li><a href="modals.html">Modals</a>
-                                                            </li>
-                                                            <li><a href="buttons.html">Buttons</a>
-                                                            </li>
-                                                            <li><a href="tabs.html">Tabs</a>
-                                                            </li>
-                                                            <li><a href="accordion.html">Accordion</a>
-                                                            </li>
-                                                            <li><a href="dialog.html">Dialogs</a>
-                                                            </li>
-                                                            <li><a href="popovers.html">Popovers</a>
-                                                            </li>
-                                                            <li><a href="tooltips.html">Tooltips</a>
-                                                            </li>
-                                                            <li><a href="dropdown.html">Dropdowns</a>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                    <li><a data-toggle="collapse" data-target="#Pagemob" href="#">Pages</a>
-                                                        <ul id="Pagemob" class="collapse dropdown-header-top">
-                                                            <li><a href="contact.html">Contact</a>
-                                                            </li>
-                                                            <li><a href="invoice.html">Invoice</a>
-                                                            </li>
-                                                            <li><a href="typography.html">Typography</a>
-                                                            </li>
-                                                            <li><a href="color.html">Color</a>
-                                                            </li>
-                                                            <li><a href="login-register.html">Login Register</a>
-                                                            </li>
-                                                            <li><a href="404.html">404 Page</a>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </nav>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-                        <!-- Mobile Menu end -->
-                        <!-- Main Menu area start-->
-                        <div class="main-menu-area mg-tb-40">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
-                                            <li class="active"><a data-toggle="tab" href="#Home"><i class="notika-icon notika-house"></i> Home</a>
-                                            </li>
-                                            <li><a data-toggle="tab" href="#mailbox"><i class="notika-icon notika-mail"></i> Records</a>
-                                            </li>
-                                            <li><a data-toggle="tab" href="#Interface"><i class="notika-icon notika-edit"></i> PPA</a>
-                                            </li>
-                                            <li><a data-toggle="tab" href="#Charts"><i class="notika-icon notika-bar-chart"></i> UACS</a>
-                                            </li>
-                                            <li><a data-toggle="tab" href="#Tables"><i class="notika-icon notika-windows"></i> Users</a>
-                                            </li>
-                                        </ul>
-                                        <div class="tab-content custom-menu-content">
-                                            <div id="Home" class="tab-pane in active notika-tab-menu-bg animated flipInX">
-                                                <ul class="notika-main-menu-dropdown">
-                                                    <li><a href="animations.html">Statistics</a>
-                                                    </li>
-                                                    <li><a href="google-map.html">Data</a>
-                                                    </li>
-                                            </div>
-                                            <div id="mailbox" class="tab-pane notika-tab-menu-bg animated flipInX">
-                                                <ul class="notika-main-menu-dropdown">
-                                                    <li><a href="inbox.html">Current</a>
-                                                    </li>
-                                                    <li><a href="view-email.html">Continuing</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <!-- <div id="Interface" class="tab-pane notika-tab-menu-bg animated flipInX"
-                                                <ul class="notika-main-menu-dropdown">
-                                                    <li><a href="animations.html">Animations</a>
-                                                    </li>
-                                                    <li><a href="google-map.html">Google Map</a>
-                                                    </li>
-                                                    <li><a href="data-map.html">Data Maps</a>
-                                                    </li>
-                                                    <li><a href="code-editor.html">Code Editor</a>
-                                                    </li>
-                                                    <li><a href="image-cropper.html">Images Cropper</a>
-                                                    </li>
-                                                    <li><a href="wizard.html">Wizard</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div id="Charts" class="tab-pane notika-tab-menu-bg animated flipInX">
-                                                <ul class="notika-main-menu-dropdown">
-                                                    <li><a href="flot-charts.html">Flot Charts</a>
-                                                    </li>
-                                                    <li><a href="bar-charts.html">Bar Charts</a>
-                                                    </li>
-                                                    <li><a href="line-charts.html">Line Charts</a>
-                                                    </li>
-                                                    <li><a href="area-charts.html">Area Charts</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div id="Tables" class="tab-pane notika-tab-menu-bg animated flipInX">
-                                                <ul class="notika-main-menu-dropdown">
-                                                    <li><a href="normal-table.html">Normal Table</a>
-                                                    </li>
-                                                    <li><a href="data-table.html">Data Table</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div id="Forms" class="tab-pane notika-tab-menu-bg animated flipInX">
-                                                <ul class="notika-main-menu-dropdown">
-                                                    <li><a href="form-elements.html">Form Elements</a>
-                                                    </li>
-                                                    <li><a href="form-components.html">Form Components</a>
-                                                    </li>
-                                                    <li><a href="form-examples.html">Form Examples</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div id="Appviews" class="tab-pane notika-tab-menu-bg animated flipInX">
-                                                <ul class="notika-main-menu-dropdown">
-                                                    <li><a href="notification.html">Notifications</a>
-                                                    </li>
-                                                    <li><a href="alert.html">Alerts</a>
-                                                    </li>
-                                                    <li><a href="modals.html">Modals</a>
-                                                    </li>
-                                                    <li><a href="buttons.html">Buttons</a>
-                                                    </li>
-                                                    <li><a href="tabs.html">Tabs</a>
-                                                    </li>
-                                                    <li><a href="accordion.html">Accordion</a>
-                                                    </li>
-                                                    <li><a href="dialog.html">Dialogs</a>
-                                                    </li>
-                                                    <li><a href="popovers.html">Popovers</a>
-                                                    </li>
-                                                    <li><a href="tooltips.html">Tooltips</a>
-                                                    </li>
-                                                    <li><a href="dropdown.html">Dropdowns</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div id="Page" class="tab-pane notika-tab-menu-bg animated flipInX">
-                                                <ul class="notika-main-menu-dropdown">
-                                                    <li><a href="contact.html">Contact</a>
-                                                    </li>
-                                                    <li><a href="invoice.html">Invoice</a>
-                                                    </li>
-                                                    <li><a href="typography.html">Typography</a>
-                                                    </li>
-                                                    <li><a href="color.html">Color</a>
-                                                    </li>
-                                                    <li><a href="login-register.html">Login Register</a>
-                                                    </li>
-                                                    <li><a href="404.html">404 Page</a>
-                                                    </li>
-                                                </ul>
-                                            </div> -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Main Menu area End-->
-                            <!-- <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li> -->
-                        <!-- @endguest
-                    </ul>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- preloader area start -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- preloader area end -->
+    <!-- page container area start -->
+    <div class="page-container">
+        <!-- sidebar menu area start -->
+        <div class="sidebar-menu">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <a href="index.html"><img src="assets/images/icon/logo.png" alt="logo"></a>
                 </div>
             </div>
-        </nav> -->
-
-        <main class="py-4">
-            @yield('content')
-        </main>
+            <div class="main-menu">
+                <div class="menu-inner">
+                    <nav>
+                        <ul class="metismenu" id="menu">
+                            <li class="active">
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>dashboard</span></a>
+                                <ul class="collapse">
+                                    <li class="active"><a href="index.html">ICO dashboard</a></li>
+                                    <li><a href="index2.html">Ecommerce dashboard</a></li>
+                                    <li><a href="index3.html">SEO dashboard</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>Sidebar
+                                        Types
+                                    </span></a>
+                                <ul class="collapse">
+                                    <li><a href="index.html">Left Sidebar</a></li>
+                                    <li><a href="index3-horizontalmenu.html">Horizontal Sidebar</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Charts</span></a>
+                                <ul class="collapse">
+                                    <li><a href="barchart.html">bar chart</a></li>
+                                    <li><a href="linechart.html">line Chart</a></li>
+                                    <li><a href="piechart.html">pie chart</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-palette"></i><span>UI Features</span></a>
+                                <ul class="collapse">
+                                    <li><a href="accordion.html">Accordion</a></li>
+                                    <li><a href="alert.html">Alert</a></li>
+                                    <li><a href="badge.html">Badge</a></li>
+                                    <li><a href="button.html">Button</a></li>
+                                    <li><a href="button-group.html">Button Group</a></li>
+                                    <li><a href="cards.html">Cards</a></li>
+                                    <li><a href="dropdown.html">Dropdown</a></li>
+                                    <li><a href="list-group.html">List Group</a></li>
+                                    <li><a href="media-object.html">Media Object</a></li>
+                                    <li><a href="modal.html">Modal</a></li>
+                                    <li><a href="pagination.html">Pagination</a></li>
+                                    <li><a href="popovers.html">Popover</a></li>
+                                    <li><a href="progressbar.html">Progressbar</a></li>
+                                    <li><a href="tab.html">Tab</a></li>
+                                    <li><a href="typography.html">Typography</a></li>
+                                    <li><a href="form.html">Form</a></li>
+                                    <li><a href="grid.html">grid system</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-slice"></i><span>icons</span></a>
+                                <ul class="collapse">
+                                    <li><a href="fontawesome.html">fontawesome icons</a></li>
+                                    <li><a href="themify.html">themify icons</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-table"></i>
+                                    <span>Tables</span></a>
+                                <ul class="collapse">
+                                    <li><a href="table-basic.html">basic table</a></li>
+                                    <li><a href="table-layout.html">table layout</a></li>
+                                    <li><a href="datatable.html">datatable</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="maps.html"><i class="ti-map-alt"></i> <span>maps</span></a></li>
+                            <li><a href="invoice.html"><i class="ti-receipt"></i> <span>Invoice Summary</span></a></li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layers-alt"></i> <span>Pages</span></a>
+                                <ul class="collapse">
+                                    <li><a href="login.html">Login</a></li>
+                                    <li><a href="login2.html">Login 2</a></li>
+                                    <li><a href="login3.html">Login 3</a></li>
+                                    <li><a href="register.html">Register</a></li>
+                                    <li><a href="register2.html">Register 2</a></li>
+                                    <li><a href="register3.html">Register 3</a></li>
+                                    <li><a href="register4.html">Register 4</a></li>
+                                    <li><a href="screenlock.html">Lock Screen</a></li>
+                                    <li><a href="screenlock2.html">Lock Screen 2</a></li>
+                                    <li><a href="reset-pass.html">reset password</a></li>
+                                    <li><a href="pricing.html">Pricing</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-exclamation-triangle"></i>
+                                    <span>Error</span></a>
+                                <ul class="collapse">
+                                    <li><a href="404.html">Error 404</a></li>
+                                    <li><a href="403.html">Error 403</a></li>
+                                    <li><a href="500.html">Error 500</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-align-left"></i> <span>Multi
+                                        level menu</span></a>
+                                <ul class="collapse">
+                                    <li><a href="#">Item level (1)</a></li>
+                                    <li><a href="#">Item level (1)</a></li>
+                                    <li><a href="#" aria-expanded="true">Item level (1)</a>
+                                        <ul class="collapse">
+                                            <li><a href="#">Item level (2)</a></li>
+                                            <li><a href="#">Item level (2)</a></li>
+                                            <li><a href="#">Item level (2)</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Item level (1)</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- sidebar menu area end -->
+        <!-- main content area start -->
+        <div class="main-content">
+            <!-- header area start -->
+            <div class="header-area">
+                <div class="row align-items-center">
+                    <!-- nav and search button -->
+                    <div class="col-md-6 col-sm-8 clearfix">
+                        <div class="nav-btn pull-left">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="search-box pull-left">
+                            <form action="#">
+                                <input type="text" name="search" placeholder="Search..." required>
+                                <i class="ti-search"></i>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- profile info & task notification -->
+                    <div class="col-md-6 col-sm-4 clearfix">
+                        <ul class="notification-area pull-right">
+                            <li id="full-view"><i class="ti-fullscreen"></i></li>
+                            <li id="full-view-exit"><i class="ti-zoom-out"></i></li>
+                            <li class="dropdown">
+                                <i class="ti-bell dropdown-toggle" data-toggle="dropdown">
+                                    <span>2</span>
+                                </i>
+                                <div class="dropdown-menu bell-notify-box notify-box">
+                                    <span class="notify-title">You have 3 new notifications <a href="#">view all</a></span>
+                                    <div class="nofity-list">
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-key btn-danger"></i></div>
+                                            <div class="notify-text">
+                                                <p>You have Changed Your Password</p>
+                                                <span>Just Now</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-comments-smiley btn-info"></i></div>
+                                            <div class="notify-text">
+                                                <p>New Commetns On Post</p>
+                                                <span>30 Seconds ago</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-key btn-primary"></i></div>
+                                            <div class="notify-text">
+                                                <p>Some special like you</p>
+                                                <span>Just Now</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-comments-smiley btn-info"></i></div>
+                                            <div class="notify-text">
+                                                <p>New Commetns On Post</p>
+                                                <span>30 Seconds ago</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-key btn-primary"></i></div>
+                                            <div class="notify-text">
+                                                <p>Some special like you</p>
+                                                <span>Just Now</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-key btn-danger"></i></div>
+                                            <div class="notify-text">
+                                                <p>You have Changed Your Password</p>
+                                                <span>Just Now</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb"><i class="ti-key btn-danger"></i></div>
+                                            <div class="notify-text">
+                                                <p>You have Changed Your Password</p>
+                                                <span>Just Now</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="dropdown">
+                                <i class="fa fa-envelope-o dropdown-toggle" data-toggle="dropdown"><span>3</span></i>
+                                <div class="dropdown-menu notify-box nt-enveloper-box">
+                                    <span class="notify-title">You have 3 new notifications <a href="#">view all</a></span>
+                                    <div class="nofity-list">
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb">
+                                                <img src="assets/images/author/author-img1.jpg" alt="image">
+                                            </div>
+                                            <div class="notify-text">
+                                                <p>Aglae Mayer</p>
+                                                <span class="msg">Hey I am waiting for you...</span>
+                                                <span>3:15 PM</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb">
+                                                <img src="assets/images/author/author-img2.jpg" alt="image">
+                                            </div>
+                                            <div class="notify-text">
+                                                <p>Aglae Mayer</p>
+                                                <span class="msg">When you can connect with me...</span>
+                                                <span>3:15 PM</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb">
+                                                <img src="assets/images/author/author-img3.jpg" alt="image">
+                                            </div>
+                                            <div class="notify-text">
+                                                <p>Aglae Mayer</p>
+                                                <span class="msg">I missed you so much...</span>
+                                                <span>3:15 PM</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb">
+                                                <img src="assets/images/author/author-img4.jpg" alt="image">
+                                            </div>
+                                            <div class="notify-text">
+                                                <p>Aglae Mayer</p>
+                                                <span class="msg">Your product is completely Ready...</span>
+                                                <span>3:15 PM</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb">
+                                                <img src="assets/images/author/author-img2.jpg" alt="image">
+                                            </div>
+                                            <div class="notify-text">
+                                                <p>Aglae Mayer</p>
+                                                <span class="msg">Hey I am waiting for you...</span>
+                                                <span>3:15 PM</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb">
+                                                <img src="assets/images/author/author-img1.jpg" alt="image">
+                                            </div>
+                                            <div class="notify-text">
+                                                <p>Aglae Mayer</p>
+                                                <span class="msg">Hey I am waiting for you...</span>
+                                                <span>3:15 PM</span>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="notify-item">
+                                            <div class="notify-thumb">
+                                                <img src="assets/images/author/author-img3.jpg" alt="image">
+                                            </div>
+                                            <div class="notify-text">
+                                                <p>Aglae Mayer</p>
+                                                <span class="msg">Hey I am waiting for you...</span>
+                                                <span>3:15 PM</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="settings-btn">
+                                <i class="ti-settings"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- header area end -->
+            <!-- page title area start -->
+            <div class="page-title-area">
+                <div class="row align-items-center">
+                    <div class="col-sm-6">
+                        <div class="breadcrumbs-area clearfix">
+                            <h4 class="page-title pull-left">Dashboard</h4>
+                            <ul class="breadcrumbs pull-left">
+                                <li><a href="index.html">Home</a></li>
+                                <li><span>Dashboard</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 clearfix">
+                        <div class="user-profile pull-right">
+                            <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
+                            <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Kumkum Rai <i class="fa fa-angle-down"></i></h4>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Message</a>
+                                <a class="dropdown-item" href="#">Settings</a>
+                                <a class="dropdown-item" href="#">Log Out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- page title area end -->
+            <div class="main-content-inner">
+                <!-- sales report area start -->
+                <div class="sales-report-area mt-5 mb-5">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="single-report mb-xs-30">
+                                <div class="s-report-inner pr--20 pt--30 mb-3">
+                                    <div class="icon"><i class="fa fa-btc"></i></div>
+                                    <div class="s-report-title d-flex justify-content-between">
+                                        <h4 class="header-title mb-0">Bitcoin</h4>
+                                        <p>24 H</p>
+                                    </div>
+                                    <div class="d-flex justify-content-between pb-2">
+                                        <h2>$ 4567809,987</h2>
+                                        <span>- 45.87</span>
+                                    </div>
+                                </div>
+                                <canvas id="coin_sales1" height="100"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="single-report mb-xs-30">
+                                <div class="s-report-inner pr--20 pt--30 mb-3">
+                                    <div class="icon"><i class="fa fa-btc"></i></div>
+                                    <div class="s-report-title d-flex justify-content-between">
+                                        <h4 class="header-title mb-0">Bitcoin Dash</h4>
+                                        <p>24 H</p>
+                                    </div>
+                                    <div class="d-flex justify-content-between pb-2">
+                                        <h2>$ 4567809,987</h2>
+                                        <span>- 45.87</span>
+                                    </div>
+                                </div>
+                                <canvas id="coin_sales2" height="100"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="single-report">
+                                <div class="s-report-inner pr--20 pt--30 mb-3">
+                                    <div class="icon"><i class="fa fa-eur"></i></div>
+                                    <div class="s-report-title d-flex justify-content-between">
+                                        <h4 class="header-title mb-0">Euthorium</h4>
+                                        <p>24 H</p>
+                                    </div>
+                                    <div class="d-flex justify-content-between pb-2">
+                                        <h2>$ 4567809,987</h2>
+                                        <span>- 45.87</span>
+                                    </div>
+                                </div>
+                                <canvas id="coin_sales3" height="100"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- sales report area end -->
+                <!-- overview area start -->
+                <div class="row">
+                    <div class="col-xl-9 col-lg-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h4 class="header-title mb-0">Overview</h4>
+                                    <select class="custome-select border-0 pr-3">
+                                        <option selected>Last 24 Hours</option>
+                                        <option value="0">01 July 2018</option>
+                                    </select>
+                                </div>
+                                <div id="verview-shart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 coin-distribution">
+                        <div class="card h-full">
+                            <div class="card-body">
+                                <h4 class="header-title mb-0">Coin Distribution</h4>
+                                <div id="coin_distribution"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- overview area end -->
+                <!-- market value area start -->
+                <div class="row mt-5 mb-5">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-sm-flex justify-content-between align-items-center">
+                                    <h4 class="header-title mb-0">Market Value And Trends</h4>
+                                    <select class="custome-select border-0 pr-3">
+                                        <option selected>Last 24 Hours</option>
+                                        <option value="0">01 July 2018</option>
+                                    </select>
+                                </div>
+                                <div class="market-status-table mt-4">
+                                    <div class="table-responsive">
+                                        <table class="dbkit-table">
+                                            <tr class="heading-td">
+                                                <td class="mv-icon">Logo</td>
+                                                <td class="coin-name">Coin Name</td>
+                                                <td class="buy">Buy</td>
+                                                <td class="sell">Sells</td>
+                                                <td class="trends">Trends</td>
+                                                <td class="attachments">Attachments</td>
+                                                <td class="stats-chart">Stats</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="mv-icon"><img src="assets/images/icon/market-value/icon1.png" alt="icon">
+                                                </td>
+                                                <td class="coin-name">Dashcoin</td>
+                                                <td class="buy">30% <img src="assets/images/icon/market-value/triangle-down.png" alt="icon"></td>
+                                                <td class="sell">20% <img src="assets/images/icon/market-value/triangle-up.png" alt="icon"></td>
+                                                <td class="trends"><img src="assets/images/icon/market-value/trends-up-icon.png" alt="icon"></td>
+                                                <td class="attachments">$ 56746,857</td>
+                                                <td class="stats-chart">
+                                                    <canvas id="mvaluechart"></canvas>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="mv-icon">
+                                                    <div class="mv-icon"><img src="assets/images/icon/market-value/icon2.png" alt="icon"></div>
+                                                </td>
+                                                <td class="coin-name">LiteCoin</td>
+                                                <td class="buy">30% <img src="assets/images/icon/market-value/triangle-down.png" alt="icon"></td>
+                                                <td class="sell">20% <img src="assets/images/icon/market-value/triangle-up.png" alt="icon"></td>
+                                                <td class="trends"><img src="assets/images/icon/market-value/trends-down-icon.png" alt="icon"></td>
+                                                <td class="attachments">$ 56746,857</td>
+                                                <td class="stats-chart">
+                                                    <canvas id="mvaluechart2"></canvas>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="mv-icon">
+                                                    <div class="mv-icon"><img src="assets/images/icon/market-value/icon3.png" alt="icon"></div>
+                                                </td>
+                                                <td class="coin-name">Euthorium</td>
+                                                <td class="buy">30% <img src="assets/images/icon/market-value/triangle-down.png" alt="icon"></td>
+                                                <td class="sell">20% <img src="assets/images/icon/market-value/triangle-up.png" alt="icon"></td>
+                                                <td class="trends"><img src="assets/images/icon/market-value/trends-up-icon.png" alt="icon"></td>
+                                                <td class="attachments">$ 56746,857</td>
+                                                <td class="stats-chart">
+                                                    <canvas id="mvaluechart3"></canvas>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="mv-icon">
+                                                    <div class="mv-icon"><img src="assets/images/icon/market-value/icon4.png" alt="icon"></div>
+                                                </td>
+                                                <td class="coin-name">Bitcoindash</td>
+                                                <td class="buy">30% <img src="assets/images/icon/market-value/triangle-down.png" alt="icon"></td>
+                                                <td class="sell">20% <img src="assets/images/icon/market-value/triangle-up.png" alt="icon"></td>
+                                                <td class="trends"><img src="assets/images/icon/market-value/trends-up-icon.png" alt="icon"></td>
+                                                <td class="attachments">$ 56746,857</td>
+                                                <td class="stats-chart">
+                                                    <canvas id="mvaluechart4"></canvas>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- market value area end -->
+                <!-- row area start -->
+                <div class="row">
+                    <!-- Live Crypto Price area start -->
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="header-title">Live Crypto Price</h4>
+                                <div class="cripto-live mt-5">
+                                    <ul>
+                                        <li>
+                                            <div class="icon b">b</div> Bitcoin<span><i class="fa fa-long-arrow-up"></i>$876909.00</span></li>
+                                        <li>
+                                            <div class="icon l">l</div> Litecoin<span><i class="fa fa-long-arrow-up"></i>$29780.00</span></li>
+                                        <li>
+                                            <div class="icon d">d</div> Dashcoin<span><i class="fa fa-long-arrow-up"></i>$13276.00</span></li>
+                                        <li>
+                                            <div class="icon b">b</div> Bitcoindash<span><i class="fa fa-long-arrow-down"></i>$5684.890</span></li>
+                                        <li>
+                                            <div class="icon e">e</div> Euthorium<span><i class="fa fa-long-arrow-down"></i>$3890.98</span></li>
+                                        <li>
+                                            <div class="icon t">b</div> Tcoin<span><i class="fa fa-long-arrow-up"></i>$750.789</span></li>
+                                        <li>
+                                            <div class="icon b">b</div> Bitcoin<span><i class="fa fa-long-arrow-up"></i>$325.037</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Live Crypto Price area end -->
+                    <!-- trading history area start -->
+                    <div class="col-lg-8 mt-sm-30 mt-xs-30">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-sm-flex justify-content-between align-items-center">
+                                    <h4 class="header-title">Trading History</h4>
+                                    <div class="trd-history-tabs">
+                                        <ul class="nav" role="tablist">
+                                            <li>
+                                                <a class="active" data-toggle="tab" href="#buy_order" role="tab">Buy Order</a>
+                                            </li>
+                                            <li>
+                                                <a data-toggle="tab" href="#sell_order" role="tab">Sell Order</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <select class="custome-select border-0 pr-3">
+                                        <option selected>Last 24 Hours</option>
+                                        <option value="0">01 July 2018</option>
+                                    </select>
+                                </div>
+                                <div class="trad-history mt-4">
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active" id="buy_order" role="tabpanel">
+                                            <div class="table-responsive">
+                                                <table class="dbkit-table">
+                                                    <tr class="heading-td">
+                                                        <td>Trading ID</td>
+                                                        <td>Time</td>
+                                                        <td>Status</td>
+                                                        <td>Amount</td>
+                                                        <td>Last Trade</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>78211</td>
+                                                        <td>4.00 AM</td>
+                                                        <td>Pending</td>
+                                                        <td>$758.90</td>
+                                                        <td>$05245.090</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>782782</td>
+                                                        <td>4.00 AM</td>
+                                                        <td>Pending</td>
+                                                        <td>$77878.90</td>
+                                                        <td>$7778.090</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>89675978</td>
+                                                        <td>4.00 AM</td>
+                                                        <td>Pending</td>
+                                                        <td>$0768.90</td>
+                                                        <td>$0945.090</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="sell_order" role="tabpanel">
+                                            <div class="table-responsive">
+                                                <table class="dbkit-table">
+                                                    <tr class="heading-td">
+                                                        <td>Trading ID</td>
+                                                        <td>Time</td>
+                                                        <td>Status</td>
+                                                        <td>Amount</td>
+                                                        <td>Last Trade</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>8964978</td>
+                                                        <td>4.00 AM</td>
+                                                        <td>Pending</td>
+                                                        <td>$445.90</td>
+                                                        <td>$094545.090</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>89675978</td>
+                                                        <td>4.00 AM</td>
+                                                        <td>Pending</td>
+                                                        <td>$78.90</td>
+                                                        <td>$074852945.090</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>78527878</td>
+                                                        <td>4.00 AM</td>
+                                                        <td>Pending</td>
+                                                        <td>$0768.90</td>
+                                                        <td>$65465.090</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- trading history area end -->
+                </div>
+                <!-- row area end -->
+                <div class="row mt-5">
+                    <!-- latest news area start -->
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="header-title">Latest News</h4>
+                                <div class="letest-news mt-5">
+                                    <div class="single-post mb-xs-40 mb-sm-40">
+                                        <div class="lts-thumb">
+                                            <img src="assets/images/blog/post-thumb1.jpg" alt="post thumb">
+                                        </div>
+                                        <div class="lts-content">
+                                            <span>Admin Post</span>
+                                            <h2><a href="blog.html">Sed ut perspiciatis unde omnis iste.</a></h2>
+                                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some...</p>
+                                        </div>
+                                    </div>
+                                    <div class="single-post">
+                                        <div class="lts-thumb">
+                                            <img src="assets/images/blog/post-thumb2.jpg" alt="post thumb">
+                                        </div>
+                                        <div class="lts-content">
+                                            <span>Admin Post</span>
+                                            <h2><a href="blog.html">Sed ut perspiciatis unde omnis iste.</a></h2>
+                                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- latest news area end -->
+                    <!-- exchange area start -->
+                    <div class="col-xl-6 mt-md-30 mt-xs-30 mt-sm-30">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="header-title">Exchange</h4>
+                                <div class="exhcange-rate mt-5">
+                                    <form action="#">
+                                        <div class="input-form">
+                                            <input type="text" value="0.76834">
+                                            <span>BTC</span>
+                                        </div>
+                                        <div class="exchange-devider">To</div>
+                                        <div class="input-form">
+                                            <input type="text" value="5689.846">
+                                            <span>USD</span>
+                                        </div>
+                                        <div class="exchange-btn">
+                                            <button type="submit">Exchange Now</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- exchange area end -->
+                </div>
+                <!-- row area start-->
+            </div>
+        </div>
+        <!-- main content area end -->
+        <!-- footer area start-->
+        <footer>
+            <div class="footer-area">
+                <p>© Copyright 2018. All right reserved. Template by <a href="https://colorlib.com/wp/">Colorlib</a>.</p>
+            </div>
+        </footer>
+        <!-- footer area end-->
     </div>
-    <!-- jquery
-		============================================ -->
-    <script src="{{asset('')}}"></script>
-    <!-- bootstrap JS
-		============================================ -->
-    <script src="{{asset('js/bootstrap.min.js')}}"></script>
-    <!-- wow JS
-		============================================ -->
-    <script src="{{asset('js/wow.min.js')}}"></script>
-    <!-- price-slider JS
-		============================================ -->
-    <script src="{{asset('js/jquery-price-slider.js')}}"></script>
-    <!-- owl.carousel JS
-		============================================ -->
-    <script src="{{asset('js/owl.carousel.min.js')}}"></script>
-    <!-- scrollUp JS
-		============================================ -->
-    <script src="{{asset('js/jquery.scrollUp.min.js')}}"></script>
-    <!-- meanmenu JS
-		============================================ -->
-    <script src="{{asset('js/meanmenu/jquery.meanmenu.js')}}"></script>
-    <!-- counterup JS
-		============================================ -->
-    <script src="{{asset('js/counterup/jquery.counterup.min.js')}}"></script>
-    <script src="{{asset('js/counterup/waypoints.min.js')}}"></script>
-    <script src="{{asset('js/counterup/counterup-active.js')}}"></script>
-    <!-- mCustomScrollbar JS
-		============================================ -->
-    <script src="{{asset('js/scrollbar/jquery.mCustomScrollbar.concat.min.js')}}"></script>
-    <!-- sparkline JS
-		============================================ -->
-    <script src="{{asset('js/sparkline/jquery.sparkline.min.js')}}"></script>
-    <script src="{{asset('js/sparkline/sparkline-active.js')}}"></script>
-    <!-- flot JS
-		============================================ -->
-    <script src="{{asset('js/flot/jquery.flot.js')}}"></script>
-    <script src="{{asset('js/flot/jquery.flot.resize.js')}}"></script>
-    <script src="{{asset('js/flot/flot-active.js')}}"></script>
-    <!-- knob JS
-		============================================ -->
-    <script src="{{asset('js/knob/jquery.knob.js')}}"></script>
-    <script src="{{asset('js/knob/jquery.appear.js')}}"></script>
-    <script src="{{asset('js/knob/knob-active.js')}}"></script>
-    <!--  wave JS
-		============================================ -->
-    <script src="{{asset('js/wave/waves.min.js')}}"></script>
-    <script src="{{asset('js/wave/wave-active.js')}}"></script>
-    <!-- icheck JS
-		============================================ -->
-    <script src="{{asset('js/icheck/icheck.min.js')}}"></script>
-    <script src="{{asset('js/icheck/icheck-active.js')}}"></script>
-    <!--  Chat JS
-		============================================ -->
-    <script src="{{asset('js/chat/jquery.chat.js')}}"></script>
-    <!--  todo JS
-		============================================ -->
-    <script src="{{asset('js/todo/jquery.todo.js')}}"></script>
-    <!-- plugins JS
-		============================================ -->
-    <script src="{{asset('js/plugins.js')}}"></script>
-    <!-- main JS
-		============================================ -->
-    <script src="{{asset('js/main.js')}}"></script>
-	<!-- tawk chat JS
-		============================================ -->
-    <script src="{{asset('js/tawk-chat.js')}}"></script>
+    <!-- page container area end -->
+    <!-- offset area start -->
+    <div class="offset-area">
+        <div class="offset-close"><i class="ti-close"></i></div>
+        <ul class="nav offset-menu-tab">
+            <li><a class="active" data-toggle="tab" href="#activity">Activity</a></li>
+            <li><a data-toggle="tab" href="#settings">Settings</a></li>
+        </ul>
+        <div class="offset-content tab-content">
+            <div id="activity" class="tab-pane fade in show active">
+                <div class="recent-activity">
+                    <div class="timeline-task">
+                        <div class="icon bg1">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <div class="tm-title">
+                            <h4>Rashed sent you an email</h4>
+                            <span class="time"><i class="ti-time"></i>09:35</span>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse distinctio itaque at.
+                        </p>
+                    </div>
+                    <div class="timeline-task">
+                        <div class="icon bg2">
+                            <i class="fa fa-check"></i>
+                        </div>
+                        <div class="tm-title">
+                            <h4>Added</h4>
+                            <span class="time"><i class="ti-time"></i>7 Minutes Ago</span>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur.
+                        </p>
+                    </div>
+                    <div class="timeline-task">
+                        <div class="icon bg2">
+                            <i class="fa fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="tm-title">
+                            <h4>You missed you Password!</h4>
+                            <span class="time"><i class="ti-time"></i>09:20 Am</span>
+                        </div>
+                    </div>
+                    <div class="timeline-task">
+                        <div class="icon bg3">
+                            <i class="fa fa-bomb"></i>
+                        </div>
+                        <div class="tm-title">
+                            <h4>Member waiting for you Attention</h4>
+                            <span class="time"><i class="ti-time"></i>09:35</span>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse distinctio itaque at.
+                        </p>
+                    </div>
+                    <div class="timeline-task">
+                        <div class="icon bg3">
+                            <i class="ti-signal"></i>
+                        </div>
+                        <div class="tm-title">
+                            <h4>You Added Kaji Patha few minutes ago</h4>
+                            <span class="time"><i class="ti-time"></i>01 minutes ago</span>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse distinctio itaque at.
+                        </p>
+                    </div>
+                    <div class="timeline-task">
+                        <div class="icon bg1">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <div class="tm-title">
+                            <h4>Ratul Hamba sent you an email</h4>
+                            <span class="time"><i class="ti-time"></i>09:35</span>
+                        </div>
+                        <p>Hello sir , where are you, i am egerly waiting for you.
+                        </p>
+                    </div>
+                    <div class="timeline-task">
+                        <div class="icon bg2">
+                            <i class="fa fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="tm-title">
+                            <h4>Rashed sent you an email</h4>
+                            <span class="time"><i class="ti-time"></i>09:35</span>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse distinctio itaque at.
+                        </p>
+                    </div>
+                    <div class="timeline-task">
+                        <div class="icon bg2">
+                            <i class="fa fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="tm-title">
+                            <h4>Rashed sent you an email</h4>
+                            <span class="time"><i class="ti-time"></i>09:35</span>
+                        </div>
+                    </div>
+                    <div class="timeline-task">
+                        <div class="icon bg3">
+                            <i class="fa fa-bomb"></i>
+                        </div>
+                        <div class="tm-title">
+                            <h4>Rashed sent you an email</h4>
+                            <span class="time"><i class="ti-time"></i>09:35</span>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse distinctio itaque at.
+                        </p>
+                    </div>
+                    <div class="timeline-task">
+                        <div class="icon bg3">
+                            <i class="ti-signal"></i>
+                        </div>
+                        <div class="tm-title">
+                            <h4>Rashed sent you an email</h4>
+                            <span class="time"><i class="ti-time"></i>09:35</span>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse distinctio itaque at.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="settings" class="tab-pane fade">
+                <div class="offset-settings">
+                    <h4>General Settings</h4>
+                    <div class="settings-list">
+                        <div class="s-settings">
+                            <div class="s-sw-title">
+                                <h5>Notifications</h5>
+                                <div class="s-swtich">
+                                    <input type="checkbox" id="switch1" />
+                                    <label for="switch1">Toggle</label>
+                                </div>
+                            </div>
+                            <p>Keep it 'On' When you want to get all the notification.</p>
+                        </div>
+                        <div class="s-settings">
+                            <div class="s-sw-title">
+                                <h5>Show recent activity</h5>
+                                <div class="s-swtich">
+                                    <input type="checkbox" id="switch2" />
+                                    <label for="switch2">Toggle</label>
+                                </div>
+                            </div>
+                            <p>The for attribute is necessary to bind our custom checkbox with the input.</p>
+                        </div>
+                        <div class="s-settings">
+                            <div class="s-sw-title">
+                                <h5>Show your emails</h5>
+                                <div class="s-swtich">
+                                    <input type="checkbox" id="switch3" />
+                                    <label for="switch3">Toggle</label>
+                                </div>
+                            </div>
+                            <p>Show email so that easily find you.</p>
+                        </div>
+                        <div class="s-settings">
+                            <div class="s-sw-title">
+                                <h5>Show Task statistics</h5>
+                                <div class="s-swtich">
+                                    <input type="checkbox" id="switch4" />
+                                    <label for="switch4">Toggle</label>
+                                </div>
+                            </div>
+                            <p>The for attribute is necessary to bind our custom checkbox with the input.</p>
+                        </div>
+                        <div class="s-settings">
+                            <div class="s-sw-title">
+                                <h5>Notifications</h5>
+                                <div class="s-swtich">
+                                    <input type="checkbox" id="switch5" />
+                                    <label for="switch5">Toggle</label>
+                                </div>
+                            </div>
+                            <p>Use checkboxes when looking for yes or no answers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- offset area end -->
+    <!-- jquery latest version -->
+    <script src="{{asset('assets/js/vendor/jquery-2.2.4.min.js')}}"></script>
+    <!-- bootstrap 4 js -->
+    <script src="{{asset('assets/js/popper.min.js')}}"></script>
+    <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('assets/js/metisMenu.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.slimscroll.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.slicknav.min.js')}}"></script>
+
+    <!-- start chart js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <!-- start highcharts js -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <!-- start zingchart js -->
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+    <script>
+    zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
+    </script>
+    <!-- all line chart activation -->
+    <script src="{{asset('assets/js/line-chart.js')}}"></script>
+    <!-- all pie chart -->
+    <script src="{{asset('assets/js/pie-chart.js')}}"></script>
+    <!-- others plugins -->
+    <script src="{{asset('assets/js/plugins.js')}}"></script>
+    <script src="{{asset('assets/js/scripts.js')}}"></script>
 </body>
+
 </html>
