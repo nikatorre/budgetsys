@@ -14,8 +14,11 @@ class CreateUacsTable extends Migration
     public function up()
     {
         Schema::create('uacs', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+          $table->increments('id');
+          $table->string('name_uacs');
+          $table->string('code_uacs');
+          $table->string('status');
+          $table->timestamps();
         });
     }
 

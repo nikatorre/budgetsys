@@ -21,13 +21,20 @@ class CreateSarosTable extends Migration
             $table->date('date');
             $table->unsignedDecimal('total', 10, 2);
             $table->text('purpose');
+            $table->unsignedInteger('user_id');
+            $table->timestamps();
         });
 
         Schema::table('saros', function (Blueprint $table) {
             $table->foreign('ppa_id')
-                ->references('id')
-                ->on('ppas')
-                ->onUpdate('cascade');
+                  ->references('id')
+                  ->on('ppas')
+                  ->onUpdate('cascade');
+
+            $table->foreign('user_id')
+                  ->references('id')
+                  ->on('users')
+                  ->onUpdate('cascade');
         });
 
     }

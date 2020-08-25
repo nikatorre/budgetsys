@@ -20,16 +20,21 @@ class CreateIncurredsTable extends Migration
             $table->date('date');
             $table->string('payee');
             $table->unsignedDecimal('amount');
+            $table->unsignedInteger('user_id');
             $table->timestamps();
         });
 
         Schema::table('incurreds', function (Blueprint $table) {
             $table->foreign('saro_id')
-                ->references('id')
-                ->on('saro')
-                ->onUpdate('cascade');
-        });
+                  ->references('id')
+                  ->on('saros')
+                  ->onUpdate('cascade');
 
+            $table->foreign('user_id')
+                  ->references('id')
+                  ->on('users')
+                  ->onUpdate('cascade');
+        });
     }
 
     /**

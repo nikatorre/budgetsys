@@ -24,17 +24,18 @@ class CreateSaroRecsTable extends Migration
         });
 
         Schema::table('saro_recs', function (Blueprint $table) {
-            $table->foreign('uacs_id')
-                ->references('id')
-                ->on('uacs')
-                ->onUpdate('cascade');
+              $table->foreign('uacs_id')
+                    ->references('id')
+                    ->on('uacs')
+                    ->onUpdate('cascade');
 
-            $table->foreign('saro_id')
-                ->references('id')
-                ->on('saros')
-                ->onUpdate('cascade');
+              $table->foreign('saro_id')
+                    ->references('id')
+                    ->on('saros')
+                    ->onUpdate('cascade');
 
         });
+
     }
 
     /**

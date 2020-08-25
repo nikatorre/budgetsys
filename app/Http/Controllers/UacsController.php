@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Uacs;
 
 class UacsController extends Controller
 {
@@ -13,7 +14,8 @@ class UacsController extends Controller
      */
     public function index()
     {
-        //
+        $uacs = Uacs::all();
+        return view('uacs.index')->with('uacs', $uacs);
     }
 
     /**

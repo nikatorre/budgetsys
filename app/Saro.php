@@ -17,5 +17,8 @@ class Saro extends Model
     public function incurred () {
         return $this->hasMany('App\Incurred');
     }
-    
+
+    public function user () {
+        return $this->belongsTo('App\User');
+    }
 }

@@ -7,11 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class SaroRec extends Model
 {
     public function uacs () {
-          return $this->belongsTo('App\Uacs');
-      }
-
+        return $this->belongsTo('App\Uacs');
+    }
     public function saro () {
-          return $this->belongsTo('App\Saro');
-      }
-
+        return $this->belongsTo('App\Saro');
+    }
 }

@@ -20,4 +20,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/db', 'UsersController@index');
+
+Route::resource('uacs', 'UacsController');
+Route::resource('ppa', 'Ppacontroller');
