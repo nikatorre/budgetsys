@@ -44,11 +44,17 @@ class UacsController extends Controller
         $new_name = $request->input('name_uacs');
         $new_code = $request->input('code_uacs');
 
-        $find_name = Uacs::where('name_uacs', $new_name)->get();
-        $find_code = Uacs::where('code_uacs', $new_code)->get();
+        $find_name = Uacs::where('name_uacs', $new_name)->get()->count();
+        $find_code = Uacs::where('code_uacs', $new_code)->get()->count();
 
-        if (($find_name->count() === 1) || ($find_code->count() === 1)) {
-            return redirect('/uacs')->with('error', 'Code already exists.');
+        if (($find_name >= 1) || ($find_code >= 1)) {
+            if ($find_code >= 1 && $find_name >= 1) {
+                return redirect('/uacs')->with('error', 'Code and Description both exists.'); 
+            } else if ($find_code) {
+                return redirect('/uacs')->with('error', 'Code already exists.');
+            } else if ($find_name) {
+                return redirect('/uacs')->with('error', 'Description already exists.');
+            }
         } else {
             $uacs = new Uacs;
             $uacs->name_uacs = $new_name;
