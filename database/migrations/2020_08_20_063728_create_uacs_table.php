@@ -17,7 +17,6 @@ class CreateUacsTable extends Migration
           $table->increments('id');
           $table->string('name_uacs');
           $table->string('code_uacs');
-          $table->string('status');
           $table->timestamps();
         });
     }

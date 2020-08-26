@@ -36,7 +36,27 @@ class UacsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name_uacs' => 'required',
+            'code_uacs' => 'required',
+        ]);
+
+        $new_name = $request->input('name_uacs');
+        $new_code = $request->input('code_uacs');
+
+        $find_name = Uacs::where('name_uacs', $new_name)->get();
+        $find_code = Uacs::where('code_uacs', $new_code)->get();
+
+        if (($find_name->count() === 1) || ($find_code->count() === 1)) {
+            return redirect('/uacs')->with('error', 'Code already exists.');
+        } else {
+            $uacs = new Uacs;
+            $uacs->name_uacs = $new_name;
+            $uacs->code_uacs = $new_code;
+            $uacs->save();
+
+            return redirect('/uacs')->with('success', 'Code successfully added.');
+        }
     }
 
     /**
